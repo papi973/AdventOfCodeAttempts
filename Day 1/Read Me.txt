@@ -1,0 +1,2 @@
+Move either Day1_Part1.cs or Day1_Part2.cs source file into MyApp folder to run 
+with input.txt file within MtApp folder
