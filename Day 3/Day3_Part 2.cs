@@ -18,9 +18,9 @@ public class CorruptedMemoryScanner
         foreach (Match control in controlMatches)
         {
             if (control.Value == "don't()")
-                isEnabled = false;  g
+                isEnabled = false;  
             else if (control.Value == "do()")
-                isEnabled = true;   /
+                isEnabled = true;   
         }
 
 

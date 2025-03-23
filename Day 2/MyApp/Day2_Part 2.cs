@@ -1,90 +1,45 @@
 using System;
 using System.Linq;
 using System.IO;
-using System.Collections.Generic;
 
-public class RedNoseReactorWithProblemDampener
+public class RedNoseReactor
 {
-    public static bool getSafe(int[] list1)
+    static void Main()
     {
-        int n = list1.Length;
-        int sumOfDifference = 0;
-        bool countSafe = false;
-        int posCount = 0;
-        int negCount = 0;
-        int counting = 0;
-        string[] condition = new string[n];
+        // Read input file line by line
+        string path = "C:\\Users\\rezbe\\Downloads\\Avent of Code\\Day 2\\MyApp\\input.txt";
+         // Adjust file path accordingly
+        int[][] lists = File.ReadLines(path)
+            .Select(line => line.Split(' ').Select(int.Parse).ToArray()) // Convert each line into an integer array
+            .ToArray();
 
-
-        // Calculate the absolute differences between the previous and next elements 
-        // and storr them in list as safe or not
-        for (int i = 0; i < n - 1; i++) {
-            sumOfDifference = list1[i] - list1[i + 1];
-
-            if(sumOfDifference > 0){
-                posCount++;
-            }else if(sumOfDifference < 0){
-               negCount++;
-            }
-
-            if(Math.Abs(sumOfDifference) >= 1  && Math.Abs(sumOfDifference) <= 3)
-            {
-                condition[i] = "Safe";
-            }
-            else
-            {
-                condition[i] = "unSafe";
-                countSafe = false;
-
-            }
-        }
-
-        //Checks if there is not any unsafe condition and 
-        //checks if all differences calculated are either all positive or all negative except for 1
-        //if (!condition.Contains("unSafe") && (posCount == 0 || negCount == 0)){
-            countSafe = true;
-        //}
-
-        //return no. of safe lines
-        return posCount == 0 || negCount == 0;
+        // Count the number of reports that can be safe with at most one removal
+        Console.WriteLine(lists.Count(IsSafeWithDampener));
     }
 
-    public static int GetSafeCount(int[] list1)
+    // Function to check if a report is safe
+    static bool IsSafe(int[] list)
     {
-        if (getSafe(list1)) return 1; // Already safe
+        if (list.Length <= 1) return true; // A single-element report is always safe
 
-        // Try removing each level one by one and check if it becomes safe
-        for (int i = 0; i < list1.Length; i++)
-        {
-            List<int> modifiedList = list1.ToList();
-            modifiedList.RemoveAt(i);
+        // Calculate the difference between consecutive elements
+        int[] differences = list.Skip(1).Zip(list, (curr, prev) => curr - prev).ToArray();
 
-            if (getSafe(modifiedList.ToArray()))
-                return 1; // Becomes safe after removing one level
-        }
+        // A report is safe if it is either strictly increasing (differences between 1 and 3)
+        // or strictly decreasing (differences between -3 and -1)
+        bool isAscending = differences.All(d => d >= 1 && d <= 3);
+        bool isDescending = differences.All(d => d <= -1 && d >= -3);
 
-        return 0; // Still unsafe
+        return isAscending || isDescending;
     }
 
-    public static void Main(string[] args)
+    // Function to check if a report can be safe after removing at most one level
+    static bool IsSafeWithDampener(int[] list)
     {
-        // Initialize the variables
-        int[] numbers = new int[0];
-        int FinalCount = 0;
-  
-        // Reading the file line by line
-        foreach (var line in File.ReadLines("C:\\Users\\rezbe\\Downloads\\Avent of Code\\Day 2\\MyApp\\input.txt"))
-        {
-            string[] parts = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        if (IsSafe(list)) return true; // If already safe, return true
 
-            // convert each line into array and add them to array 
-            numbers = parts.Select(int.Parse).ToArray();
-
-            //call the getDistance method and add result to final count. 
-            FinalCount += GetSafeCount(numbers);
-        }
-
-        // Print the final count
-        Console.WriteLine(FinalCount);
+        // Try removing each element one by one and check if the modified report is safe
+        return Enumerable.Range(0, list.Length)
+            .Any(i => IsSafe(list.Where((_, index) => index != i).ToArray()));
     }
 }

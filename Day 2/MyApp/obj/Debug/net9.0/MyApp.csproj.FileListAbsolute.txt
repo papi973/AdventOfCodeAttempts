@@ -12,3 +12,4 @@ C:\Users\rezbe\Downloads\Avent of Code\Day 2\MyApp\obj\Debug\net9.0\refint\MyApp
 C:\Users\rezbe\Downloads\Avent of Code\Day 2\MyApp\obj\Debug\net9.0\MyApp.pdb
 C:\Users\rezbe\Downloads\Avent of Code\Day 2\MyApp\obj\Debug\net9.0\MyApp.genruntimeconfig.cache
 C:\Users\rezbe\Downloads\Avent of Code\Day 2\MyApp\obj\Debug\net9.0\ref\MyApp.dll
+C:\Users\rezbe\Downloads\Avent of Code\Day 2\MyApp\obj\Debug\net9.0\MyApp.sourcelink.json

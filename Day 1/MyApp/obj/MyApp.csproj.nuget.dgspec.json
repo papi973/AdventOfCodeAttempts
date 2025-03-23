@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rezbe\\Downloads\\Day 1\\MyApp\\MyApp.csproj": {}
+    "C:\\Users\\rezbe\\Downloads\\Avent of Code\\Day 1\\MyApp\\MyApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rezbe\\Downloads\\Day 1\\MyApp\\MyApp.csproj": {
+    "C:\\Users\\rezbe\\Downloads\\Avent of Code\\Day 1\\MyApp\\MyApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rezbe\\Downloads\\Day 1\\MyApp\\MyApp.csproj",
+        "projectUniqueName": "C:\\Users\\rezbe\\Downloads\\Avent of Code\\Day 1\\MyApp\\MyApp.csproj",
         "projectName": "MyApp",
-        "projectPath": "C:\\Users\\rezbe\\Downloads\\Day 1\\MyApp\\MyApp.csproj",
+        "projectPath": "C:\\Users\\rezbe\\Downloads\\Avent of Code\\Day 1\\MyApp\\MyApp.csproj",
         "packagesPath": "C:\\Users\\rezbe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rezbe\\Downloads\\Day 1\\MyApp\\obj\\",
+        "outputPath": "C:\\Users\\rezbe\\Downloads\\Avent of Code\\Day 1\\MyApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
