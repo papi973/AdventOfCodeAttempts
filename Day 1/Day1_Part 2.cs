@@ -18,7 +18,7 @@
 
         // Reading the file line by line
         // Skip lines that don't have exactly two values
-        // Parse the values and add them using tuple
+        // Parse the values and add them using a tuple
         var data = File.ReadLines(file)
             .Select(line => line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
             .Where(parts => parts.Length == 2)

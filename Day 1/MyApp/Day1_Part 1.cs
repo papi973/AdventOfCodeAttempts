@@ -16,13 +16,13 @@
     public static void Main(string[] args)
     {
         //Declare path where input is
-        string file = "C:\\Users\\Papiso93503\\Documents\\PythonFiles\\Test\\input.txt";
+        string filePath = "C:\\Users\\Papiso93503\\Documents\\PythonFiles\\Test\\input.txt";
 
 
         //Reading the file line by line and spliting it
         //Shecking if lines have exacly 2 values
         //Selecting each line and converting it to int with tuple
-        var data = File.ReadLines(file)
+        var data = File.ReadLines(filePath)
             .Select(line => line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
             .Where(parts => parts.Length == 2)
             .Select(parts => (int.Parse(parts[0]), int.Parse(parts[1])));
