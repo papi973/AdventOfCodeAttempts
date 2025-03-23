@@ -7,9 +7,9 @@ public class RedNoseReactor
     static void Main()
     {
         // Read input file line by line
-        string path = "C:\\Users\\rezbe\\Downloads\\Avent of Code\\Day 2\\MyApp\\input.txt";
+        string filePath = "C:\\Users\\rezbe\\Downloads\\Avent of Code\\Day 2\\MyApp\\input.txt";
          // Adjust file path accordingly
-        int[][] lists = File.ReadLines(path)
+        int[][] lists = File.ReadLines(filePath)
             .Select(line => line.Split(' ').Select(int.Parse).ToArray()) // Convert each line into an integer array
             .ToArray();
 
